@@ -1,0 +1,9 @@
+@import "../../../assets/shared/variables";
+
+.am-header {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  height: $header-height;
+  background-color: $base-color;
+}
