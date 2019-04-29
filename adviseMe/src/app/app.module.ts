@@ -7,6 +7,21 @@ import { HeaderComponent } from './components/header/header.component';
 import { ActionComponent } from './components/action/action.component';
 import { ConsoleComponent } from './components/console/console.component';
 import { MessageComponent } from './components/message/message.component';
+import { SocialLoginComponent } from './components/social-login/social-login.component';
+import { AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
+
+export function provideConfig() {
+  return new AuthServiceConfig([
+    {
+      id: GoogleLoginProvider.PROVIDER_ID,
+      provider: new GoogleLoginProvider('655665501705-okka6uv00p47l8c7mm8rliq5p9pv39jb.apps.googleusercontent.com')
+    },
+    {
+      id: FacebookLoginProvider.PROVIDER_ID,
+      provider: new FacebookLoginProvider('303123880300927')
+    }
+  ]);
+}
 
 @NgModule({
   declarations: [
@@ -14,13 +29,20 @@ import { MessageComponent } from './components/message/message.component';
     HeaderComponent,
     ActionComponent,
     ConsoleComponent,
-    MessageComponent
+    MessageComponent,
+    SocialLoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
