@@ -6,8 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./message.component.scss']
 })
 export class MessageComponent implements OnInit {
+  
+  content: string;
+  isYour: boolean;
 
-  constructor() { }
+  constructor( content: string, isYour: boolean ) {
+    this.content = content;
+    this.isYour = isYour;
+  }
 
   ngOnInit() {
   }

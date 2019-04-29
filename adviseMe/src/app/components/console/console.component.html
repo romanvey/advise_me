@@ -1,3 +1,20 @@
-<p>
-  console works!
-</p>
+<div class="am-console">
+    <div class="am-console-content">
+      <div class="am-console-message" *ngFor="let message of recentMessages">
+        <div class="am-console-message-container" [class.right] = "message.isYour" [class.left]="!message.isYour">
+          <div class="am-console-message-text">
+              {{message.content}}
+          </div>
+
+          <div class="am-console-message-photo">
+            <img src="https://lh6.googleusercontent.com/-sKOmJ4lfVgo/AAAAAAAAAAI/AAAAAAAAAIE/B1AoyXasb10/s96-c/photo.jpg">
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="am-console-input">
+      <div class="input-group am-console-input-group">
+          <input type="text" class="form-control" placeholder="Your command" aria-label="Your command" aria-describedby="basic-addon2">
+          <button class="btn btn-outline-secondary" type="button">Send</button>
+    </div>
+</div>
