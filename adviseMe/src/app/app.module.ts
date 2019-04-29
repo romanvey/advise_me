@@ -13,6 +13,8 @@ import { LoggedOutGuard } from './auth/logged-out.guard';
 import { LoggedInGuard } from './auth/logged-in.guard';
 import { SocialLoginPageComponent } from './components/social-login/page/social-login-page.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { RestService } from './services/rest.service';
+import { HttpClientModule } from '@angular/common/http';
 
 export function provideConfig() {
   return new AuthServiceConfig([
@@ -41,7 +43,8 @@ export function provideConfig() {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    HttpClientModule
   ],
   providers: [
     {
@@ -49,7 +52,8 @@ export function provideConfig() {
       useFactory: provideConfig
     },
     LoggedOutGuard,
-    LoggedInGuard
+    LoggedInGuard,
+    RestService
   ],
   bootstrap: [AppComponent]
 })
