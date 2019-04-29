@@ -2,7 +2,8 @@
 
 .am-console{
     width: 50vw;
-    height: 100vh;
+    height: calc(100% - #{$header-height});
+    margin-top: $header-height;
     &-content{
         height: calc(100% - #{$message-input-height});
         width: 100%;
@@ -10,6 +11,7 @@
         padding: 20px;
         display: flex;
         flex-direction: column;
+        overflow-y: auto;
     }
 
     &-message {
