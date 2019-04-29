@@ -51,16 +51,15 @@ export class ConsoleComponent implements OnInit {
 
   }
 
-  sendMessage(){
-    if (this.messageContent != '') {
+  sendMessage() {
+    if (this.messageContent !== '') {
       this.recentMessages.push(new MessageComponent(this.messageContent, true));
       this.messageContent = '';
       setTimeout(() => {this.scrollDownMessageContainer()}, 100);
-    } 
+    }
   }
 
   scrollDownMessageContainer() {
     this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
   }
-
 }

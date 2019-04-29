@@ -7,8 +7,7 @@ import { SIGNIN } from '../components/social-login/page/social-login-page.compon
 export class LoggedInGuard implements CanActivate {
   constructor(
     private router: Router
-  ) {
-  }
+  ) {}
 
   canActivate(
     next: ActivatedRouteSnapshot,

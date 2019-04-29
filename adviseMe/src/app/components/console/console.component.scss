@@ -1,97 +1,100 @@
 @import "../../../assets/shared/variables";
 
-.am-console{
-    width: 50vw;
-    height: calc(100% - #{$header-height});
-    margin-top: $header-height;
-    &-content{
-        height: calc(100% - #{$message-input-height});
-        width: 100%;
-        background-color: #eaeaea;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        overflow-y: auto;
+.am-console {
+  height: calc(100% - #{$header-height});
+  margin-top: $header-height;
+
+  &-content {
+    height: calc(100% - #{$message-input-height});
+    width: 100%;
+    background-color: #eaeaea;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  &-message {
+    padding: 5px;
+    margin: 0;
+    border-radius: 4px;
+
+    &-container {
+      display: flex;
+
+      &.left {
+        justify-content: flex-end;
+        flex-direction: row-reverse;
+
+        .am-console {
+          &-message {
+            &-text {
+              margin-left: 20px;
+              background: #FFC107;
+            }
+          }
+        }
+      }
+
+      &.right {
+        justify-content: flex-end;
+
+        .am-console {
+          &-message {
+            &-text {
+              margin-right: 20px;
+              background: #039BE5;
+            }
+          }
+        }
+      }
     }
 
-    &-message {
-        padding: 5px;
-        margin: 0;
-        border-radius: 4px;
-        
-        &-container {
-            display: flex;
-
-            &.left{
-                justify-content: flex-end;
-                flex-direction: row-reverse;
-
-                .am-console {
-                    &-message {
-                        &-text {
-                            margin-left: 20px;
-                            background: #FFC107;
-
-                        }
-                    }
-                }
-            }
-
-            &.right{
-                justify-content: flex-end;
-
-                .am-console {
-                    &-message {
-                        &-text {
-                            margin-right: 20px;
-                            background: #039BE5;
-                        }
-                    }
-                }
-            }
-        }
-
-        &-group{
-            margin-top: 10px;
-            margin-bottom: 10px;
-            display: flex;
-        }
-        &-photo {
-            img {
-                width: 50px;
-                height: 50px;
-                border-radius: 50%;
-            }
-            
-        }
-
-        &-text {
-            display: flex;
-            align-items: center;
-            border-radius: 10px;
-            width: auto;
-            padding: 10px;
-            height: 30px;
-            align-self: center;
-        }
+    &-group {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      display: flex;
     }
-    &-input{
+
+    &-photo {
+      img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
+
+    &-text {
+      display: flex;
+      align-items: center;
+      border-radius: 10px;
+      width: auto;
+      padding: 10px;
+      height: 30px;
+      align-self: center;
+    }
+  }
+
+  &-input {
+    height: $message-input-height;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    &-group {
+      display: flex;
+
+      & input {
         height: $message-input-height;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        &-group{
-            display: flex;
-            & input{
-                height: $message-input-height;
-                width: 85%;
-            }
-            & button{
-                height: $message-input-height;
-                width: 15%;
-                background-color: $base-color;
-                color: white;
-            }
-        }
+        width: 85%;
+      }
+
+      & button {
+        height: $message-input-height;
+        width: 15%;
+        background-color: $base-color;
+        color: white;
+      }
     }
+  }
 }
