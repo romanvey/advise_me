@@ -9,6 +9,10 @@ import { ConsoleComponent } from './components/console/console.component';
 import { MessageComponent } from './components/message/message.component';
 import { SocialLoginComponent } from './components/social-login/social-login.component';
 import { AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
+import { LoggedOutGuard } from './auth/logged-out.guard';
+import { LoggedInGuard } from './auth/logged-in.guard';
+import { SocialLoginPageComponent } from './components/social-login/page/social-login-page.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 export function provideConfig() {
   return new AuthServiceConfig([
@@ -30,7 +34,9 @@ export function provideConfig() {
     ActionComponent,
     ConsoleComponent,
     MessageComponent,
-    SocialLoginComponent
+    SocialLoginComponent,
+    SocialLoginPageComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +47,9 @@ export function provideConfig() {
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    LoggedOutGuard,
+    LoggedInGuard
   ],
   bootstrap: [AppComponent]
 })

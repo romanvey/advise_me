@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'angularx-social-login';
+import { Router } from '@angular/router';
+import { ROOT } from '../home-page/home-page.component';
 
 
 @Component({
@@ -10,7 +12,8 @@ import { AuthService } from 'angularx-social-login';
 export class SocialLoginComponent implements OnInit {
 
   constructor(
-    private socialAuthService: AuthService
+    private socialAuthService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -20,8 +23,8 @@ export class SocialLoginComponent implements OnInit {
     this.socialAuthService.signIn(socialProvider).then(
       userData => {
         console.log(userData);
+        localStorage.setItem('user', JSON.stringify(userData));
+        this.router.navigateByUrl( ROOT ).then();
       });
   }
 }
-
-export const SIGNIN = 'signin';

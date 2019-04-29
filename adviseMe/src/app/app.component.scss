@@ -1,9 +1,7 @@
-.am {
-  &-app {
-    height: 100%;
-  }
+@import '../assets/shared/variables';
 
-  &-page {
-    height: 100%;
-  }
+.am {
+  background: $background;
+  height: 100%;
+  width: 100%;
 }
