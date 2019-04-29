@@ -5,8 +5,8 @@
            [class.right]="message.isYour"
            [class.left]="!message.isYour"
       >
-        <div class="am-console-message-text">
-          {{ message.content }}
+        <div class="am-console-message-text" >
+           <p *ngFor="let line of message.content" [innerHtml]="line"></p>
         </div>
 
         <div class="am-console-message-photo">
@@ -26,12 +26,12 @@
         aria-describedby="basic-addon2"
         [value]="messageContent"
         (input)="messageContent = $event.target.value"
-        (keyup.enter)="sendMessage()">
+        (keyup.enter)="sendYourMessage()">
 
       <button
         class="btn btn-outline-secondary"
         type="button"
-        (click)="sendMessage()">Send
+        (click)="sendYourMessage()">Send
       </button>
     </div>
   </div>

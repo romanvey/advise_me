@@ -7,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageComponent implements OnInit {
   
-  content: string;
+  content: string[];
   isYour: boolean;
 
-  constructor( content: string, isYour: boolean ) {
+  constructor( content: string[], isYour: boolean ) {
     this.content = content;
     this.isYour = isYour;
   }

@@ -7,7 +7,7 @@
   &-content {
     height: calc(100% - #{$message-input-height});
     width: 100%;
-    background-color: #fff;
+    background-color: $console-background;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -30,7 +30,7 @@
           &-message {
             &-text {
               margin-left: 20px;
-              background: #FFC107;
+              background: $secondary-color;
             }
           }
         }
@@ -43,7 +43,7 @@
           &-message {
             &-text {
               margin-right: 20px;
-              background: #039BE5;
+              background: $base-color;
             }
           }
         }
@@ -66,12 +66,15 @@
 
     &-text {
       display: flex;
-      align-items: center;
+      flex-direction: column;
+      justify-content: center;
       border-radius: 10px;
       width: auto;
       padding: 10px;
-      height: 30px;
-      align-self: center;
+
+      & p {
+          margin: 0;
+      }
     }
   }
 
@@ -93,7 +96,7 @@
         height: $message-input-height;
         width: 15%;
         background-color: $base-color;
-        color: white;
+        color: $button-color;
       }
     }
   }
