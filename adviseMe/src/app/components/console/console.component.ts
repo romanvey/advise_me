@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageComponent } from '../message/message.component';
 import { ViewChild, ElementRef } from '@angular/core';
+import { RestService } from '../../services/rest.service';
 
 @Component({
   selector: 'app-console',
@@ -13,7 +14,9 @@ export class ConsoleComponent implements OnInit {
   messageContent = '';
   @ViewChild('messageContainer') messageContainer: ElementRef;
 
-  constructor() { }
+  constructor(
+    private restService: RestService
+  ) { }
 
   ngOnInit() {
     let message = new MessageComponent('Haha!', true);
@@ -48,6 +51,11 @@ export class ConsoleComponent implements OnInit {
     this.recentMessages.push(message13);
     this.recentMessages.push(message14);
     this.recentMessages.push(message15);
+
+    this.restService.getWeatherData('Lviv').subscribe(data => {
+        console.log(data);
+      }
+    );
 
   }
 
