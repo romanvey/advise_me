@@ -6,7 +6,10 @@
     <div class="am-header-content" *ngIf="user">
       <div class="am-header-username">{{ user.name }}</div>
       <div class="am-header-photo">
-        <img [src]="user.photoUrl" />
+        <img alt='' [src]="user.photoUrl" />
+      </div>
+      <div class="am-header-logout">
+        <mat-icon (click)="logout()">logout</mat-icon>
       </div>
     </div>
   </div>

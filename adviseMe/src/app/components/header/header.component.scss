@@ -21,7 +21,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 180px;
+    width: 240px;
+    height: 100%;
     justify-content: space-between;
   }
 
@@ -40,5 +41,21 @@
 
   &-username {
     font-size: 16px;
+  }
+
+  &-logout {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: $header-height;
+    justify-content: center;
+    
+    &:hover {
+      background-color: $base-color-hover;
+    }
+
+    mat-icon {
+      cursor: pointer;
+    }
   }
 }

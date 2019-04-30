@@ -22,7 +22,6 @@ export class SocialLoginComponent implements OnInit {
   loginSocial(socialProvider) {
     this.socialAuthService.signIn(socialProvider).then(
       userData => {
-        console.log(userData);
         localStorage.setItem('user', JSON.stringify(userData));
         this.router.navigateByUrl( ROOT ).then();
       });
