@@ -50,22 +50,9 @@ html, body {
       display: none;
     }
 
-    a {
-      color: rgba(43, 43, 43, 1);
-      text-decoration: none;
-      padding: 10px;
-      border-bottom: 2px solid rgba(43, 43, 43, 1);
-    }
-
-    a:hover {
-      background: rgba(43, 43, 43, 1);
-      color: rgba(255, 255, 255, 1);
-    }
-
-
     input[type="checkbox"]:checked ~ div {
-      background: rgba(73, 168, 68, 1);
-      box-shadow: 0 0 2px rgba(73, 168, 68, 1);
+      background: $checkbox-checked-background;
+      box-shadow: $checkbox-checked-shadow;
     }
 
     input[type="checkbox"]:checked ~ div label {
@@ -80,9 +67,9 @@ html, body {
     div {
       height: 30px;
       width: 60px;
-      background: rgba(43, 43, 43, 1);
+      background: $checkbox-unchecked-background;
       position: relative;
-      box-shadow: 0 0 2px rgba(43, 43, 43, 1);
+      box-shadow: $checkbox-unchecked-shadow;
       cursor: pointer;
     }
 
@@ -117,7 +104,7 @@ html, body {
     }
 
     label::before, label::after {
-      background: rgba(43, 43, 43, 1);
+      background: $checkbox-unchecked-background;
       border-radius: 5px;
     }
 
@@ -125,7 +112,7 @@ html, body {
       height: 15px;
       left: 10px;
       top: 2px;
-      background: rgba(73, 168, 68, 1);
+      background: $checkbox-checked-background;
     }
 
     input[type="checkbox"]:checked ~ div label::after {
@@ -133,7 +120,7 @@ html, body {
       left: 2px;
       top: 10px;
       width: 7px;
-      background: #49a844;
+      background: $checkbox-checked-background;
     }
   }
 }
