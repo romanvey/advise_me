@@ -71,6 +71,8 @@ export class ConsoleComponent implements OnInit {
         this.restService.getWeatherData(city).subscribe(data => {
           const weatherInfo = 'Now in ' + city + ' <b>' + data.main.temp + '&#176;C</b> and ' + data.weather[0].description;
           this.sendSystemMessage(weatherInfo);
+        }, () => {
+          this.sendSystemMessage('Error in processing your request, please check city name');
         }
       );
     }

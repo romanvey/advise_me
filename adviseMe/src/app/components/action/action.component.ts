@@ -19,7 +19,15 @@ export class ActionComponent implements OnInit {
     this.actionService.actionChanged$.subscribe(data => {
       this.actionTitle = data;
       this.activeAction = actions[data];
+      this.activeAction.map(item => {
+        item.completed = JSON.parse(localStorage.getItem(item.title));
+      });
     });
+  }
+
+  toggleActionItemCompletion(actionItem) {
+    actionItem.completed = !actionItem.completed;
+    localStorage.setItem(actionItem.title, JSON.stringify(actionItem.completed));
   }
 
 }

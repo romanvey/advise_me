@@ -8,6 +8,12 @@
         </mat-expansion-panel-header>
         <div class="am-action-expansion-content">
           {{ actionItem.content }}
+          <div class="am-checkbox">
+            <input type="checkbox" [checked]="actionItem.completed"/>
+            <div (click)="toggleActionItemCompletion(actionItem)">
+              <label></label>
+            </div>
+          </div>
         </div>
       </mat-expansion-panel>
     </mat-accordion>

@@ -1,4 +1,5 @@
 @import 'assets/shared/variables';
+@import url(https://fonts.googleapis.com/css?family=Sanchez);
 
 ::-webkit-scrollbar {
   display: none;
@@ -33,6 +34,106 @@ html, body {
       display: flex;
       flex-direction: column;
       overflow-y: auto;
+    }
+  }
+
+  &-checkbox {
+    padding-top: 10px;
+
+    *, *::before, *::after {
+      transition: 400ms all ease-in-out 50ms;
+      box-sizing: border-box;
+      backface-visibility: hidden;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    a {
+      color: rgba(43, 43, 43, 1);
+      text-decoration: none;
+      padding: 10px;
+      border-bottom: 2px solid rgba(43, 43, 43, 1);
+    }
+
+    a:hover {
+      background: rgba(43, 43, 43, 1);
+      color: rgba(255, 255, 255, 1);
+    }
+
+
+    input[type="checkbox"]:checked ~ div {
+      background: rgba(73, 168, 68, 1);
+      box-shadow: 0 0 2px rgba(73, 168, 68, 1);
+    }
+
+    input[type="checkbox"]:checked ~ div label {
+      left: 35px;
+      transform: rotate(360deg);
+    }
+
+    div, label {
+      border-radius: 50px;
+    }
+
+    div {
+      height: 30px;
+      width: 60px;
+      background: rgba(43, 43, 43, 1);
+      position: relative;
+      box-shadow: 0 0 2px rgba(43, 43, 43, 1);
+      cursor: pointer;
+    }
+
+    label {
+      height: 20px;
+      width: 20px;
+      background: rgba(255, 255, 255, 1);
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      cursor: pointer;
+    }
+
+    label::before {
+      content: '';
+      height: 15px;
+      left: 8px;
+      top: 2px;
+      width: 3px;
+      position: absolute;
+      transform: rotate(45deg);
+    }
+
+    label::after {
+      content: '';
+      height: 3px;
+      left: 2px;
+      top: 8px;
+      width: 15px;
+      position: absolute;
+      transform: rotate(45deg);
+    }
+
+    label::before, label::after {
+      background: rgba(43, 43, 43, 1);
+      border-radius: 5px;
+    }
+
+    input[type="checkbox"]:checked ~ div label::before {
+      height: 15px;
+      left: 8px;
+      top: 2px;
+      background: rgba(73, 168, 68, 1);
+    }
+
+    input[type="checkbox"]:checked ~ div label::after {
+      height: 3px;
+      left: 2px;
+      top: 8px;
+      width: 15px;
+      background: rgba(73, 168, 68, 1);
     }
   }
 }
