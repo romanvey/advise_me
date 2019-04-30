@@ -1,7 +1,14 @@
 <div class="am-header">
   <div class="am-header-container">
-    <div class="am-header-username"></div>
-    <div class="am-header-photo"></div>
+    <div class="am-header-logo">
+      AdviseMe
+    </div>
+    <div class="am-header-content" *ngIf="user">
+      <div class="am-header-username">{{ user.name }}</div>
+      <div class="am-header-photo">
+        <img [src]="user.photoUrl" />
+      </div>
+    </div>
   </div>
 </div>
 

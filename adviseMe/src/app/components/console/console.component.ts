@@ -16,6 +16,7 @@ export class ConsoleComponent implements OnInit {
   additionalCommands = ['weather', 'open', 'help'];
   recentMessages = [];
   messageContent = '';
+  user = null;
   @ViewChild('messageContainer') messageContainer: ElementRef;
 
   constructor(
@@ -24,6 +25,7 @@ export class ConsoleComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem('user'));
     this.getHelp();
   }
 
