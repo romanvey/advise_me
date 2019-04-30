@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MessageComponent } from '../message/message.component';
 import { ViewChild, ElementRef } from '@angular/core';
 import { RestService } from '../../services/rest.service';
+import { ActionService } from '../../services/action.service';
+import { actions } from '../../enums/actions';
 
 @Component({
   selector: 'app-console',
@@ -10,14 +12,15 @@ import { RestService } from '../../services/rest.service';
 })
 export class ConsoleComponent implements OnInit {
 
-  mainCommands = ['lose weight', 'give up smoking', 'gain muscle'];
+  mainCommands = Object.keys(actions);
   additionalCommands = ['weather', 'open', 'help'];
   recentMessages = [];
   messageContent = '';
   @ViewChild('messageContainer') messageContainer: ElementRef;
 
   constructor(
-    private restService: RestService
+    private restService: RestService,
+    private actionService: ActionService
   ) { }
 
   ngOnInit() {
@@ -50,10 +53,10 @@ export class ConsoleComponent implements OnInit {
     command = command.trim();
     let commandName = command.split(' ')[0];
 
-    if (this.mainCommands.indexOf(command) > -1){
+    if (this.mainCommands.includes(command)){
       this.handleMainCommand(command);
     }
-    if (this.additionalCommands.indexOf(commandName) > -1){
+    if (this.additionalCommands.includes(commandName)){
       this.handleAdditionalCommand(command, commandName);
     }
     this.scrollDownMessageContainer();
@@ -63,6 +66,7 @@ export class ConsoleComponent implements OnInit {
   handleMainCommand(command){
     // TODO: handling main commands
     this.sendSystemMessage('<b>Okay!</b>');
+    this.actionService.changeAction(command);
   }
 
 
@@ -88,7 +92,7 @@ export class ConsoleComponent implements OnInit {
 
 
   checkArgs(commandName, needed){
-    let argsNum = commandName.split(' ').length - 1
+    let argsNum = commandName.split(' ').length - 1;
     if (argsNum !== needed){
       let systemMessage = 'You have <b>' + argsNum.toString() + '</b> arguments, but <b>' + needed.toString() + '</b> needed!';
       this.sendSystemMessage(systemMessage);

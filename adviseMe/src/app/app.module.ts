@@ -15,6 +15,9 @@ import { SocialLoginPageComponent } from './components/social-login/page/social-
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { RestService } from './services/rest.service';
 import { HttpClientModule } from '@angular/common/http';
+import { MatExpansionModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActionService } from './services/action.service';
 
 export function provideConfig() {
   return new AuthServiceConfig([
@@ -44,7 +47,9 @@ export function provideConfig() {
     BrowserModule,
     AppRoutingModule,
     SocialLoginModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatExpansionModule
   ],
   providers: [
     {
@@ -53,7 +58,8 @@ export function provideConfig() {
     },
     LoggedOutGuard,
     LoggedInGuard,
-    RestService
+    RestService,
+    ActionService
   ],
   bootstrap: [AppComponent]
 })

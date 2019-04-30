@@ -1,0 +1,27 @@
+@import "../../../assets/shared/variables";
+@import '../../../../src/styles.scss';
+
+.am-action {
+  @extend .am-page;
+  overflow-y: auto;
+
+  &-content {
+    @extend .am-page-content;
+    padding: 40px;
+  }
+
+  &-header {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+
+  &-accordion {
+    background: white;
+
+    &-header {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  }
+}

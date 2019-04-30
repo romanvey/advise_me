@@ -1,17 +1,14 @@
 @import "../../../assets/shared/variables";
+@import '../../../../src/styles.scss';
 
 .am-console {
-  height: calc(100% - #{$header-height});
-  margin-top: $header-height;
+  @extend .am-page;
 
   &-content {
-    height: calc(100% - #{$message-input-height});
-    width: 100%;
+    @extend .am-page-content;
     background-color: $console-background;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
+    height: calc(100% - #{$message-input-height});
   }
 
   &-message {

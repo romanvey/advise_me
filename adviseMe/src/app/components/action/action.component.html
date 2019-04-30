@@ -1,3 +1,15 @@
-<p>
-  action works!
-</p>
+<div class="am-action">
+  <div class="am-action-content" *ngIf="activeAction">
+    <h2 class="am-action-header">{{ actionTitle }}</h2>
+    <mat-accordion [multi]="true" class="am-action-accordion">
+      <mat-expansion-panel *ngFor="let actionItem of activeAction">
+        <mat-expansion-panel-header class="am-action-accordion-header">
+          {{ actionItem.title }}
+        </mat-expansion-panel-header>
+        <div class="am-action-expansion-content">
+          {{ actionItem.content }}
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

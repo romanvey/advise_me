@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActionService } from '../../services/action.service';
+import { actions } from '../../enums/actions';
 
 @Component({
   selector: 'app-action',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./action.component.scss']
 })
 export class ActionComponent implements OnInit {
+  activeAction = null;
+  actionTitle = '';
 
-  constructor() { }
+  constructor(
+    private actionService: ActionService
+  ) { }
 
   ngOnInit() {
+    this.actionService.actionChanged$.subscribe(data => {
+      this.actionTitle = data;
+      this.activeAction = actions[data];
+    })
   }
 
 }
