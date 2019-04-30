@@ -19,7 +19,7 @@ export class ActionComponent implements OnInit {
     this.actionService.actionChanged$.subscribe(data => {
       this.actionTitle = data;
       this.activeAction = actions[data];
-    })
+    });
   }
 
 }

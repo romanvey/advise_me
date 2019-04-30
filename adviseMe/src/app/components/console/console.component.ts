@@ -27,74 +27,67 @@ export class ConsoleComponent implements OnInit {
     this.getHelp();
   }
 
-
   sendYourMessage() {
-    let lastCommand = this.messageContent;
+    const lastCommand = this.messageContent;
     this.messageContent = '';
     if (lastCommand !== '') {
       this.recentMessages.push(new MessageComponent(lastCommand.split('\n'), true));
-      setTimeout(() => {this.getSystemResponse(lastCommand)}, 100);
+      setTimeout(() => { this.getSystemResponse(lastCommand); }, 100);
     }
   }
 
-  
-  sendSystemMessage(messageContent){
+  sendSystemMessage(messageContent) {
     this.recentMessages.push(new MessageComponent(messageContent.split('\n'), false));
-    setTimeout(() => {this.scrollDownMessageContainer()}, 100);
+    setTimeout(() => { this.scrollDownMessageContainer(); }, 100);
   }
-
 
   scrollDownMessageContainer() {
     this.messageContainer.nativeElement.scrollTop = this.messageContainer.nativeElement.scrollHeight;
   }
 
-
-  getSystemResponse(command){
+  getSystemResponse(command) {
     command = command.trim();
-    let commandName = command.split(' ')[0];
+    const commandName = command.split(' ')[0];
 
-    if (this.mainCommands.includes(command)){
+    if (this.mainCommands.includes(command)) {
       this.handleMainCommand(command);
     }
-    if (this.additionalCommands.includes(commandName)){
+    if (this.additionalCommands.includes(commandName)) {
       this.handleAdditionalCommand(command, commandName);
     }
     this.scrollDownMessageContainer();
   }
 
-
-  handleMainCommand(command){
+  handleMainCommand(command) {
     // TODO: handling main commands
     this.sendSystemMessage('<b>Okay!</b>');
     this.actionService.changeAction(command);
   }
 
-
-  handleAdditionalCommand(command, commandName){
-    if (commandName === 'weather'){
-        if (!this.checkArgs(command, 1)) return;
-        let city = command.split(' ')[1];
+  handleAdditionalCommand(command, commandName) {
+    if (commandName === 'weather') {
+        if (!this.checkArgs(command, 1)) { return; }
+        const city = command.split(' ')[1];
         this.restService.getWeatherData(city).subscribe(data => {
-          let weatherInfo = 'Now in ' + city + ' <b>' + data['main']['temp'] + '&#176;C</b> and ' + data['weather'][0]['description'];
+          const weatherInfo = 'Now in ' + city + ' <b>' + data.main.temp + '&#176;C</b> and ' + data.weather[0].description;
           this.sendSystemMessage(weatherInfo);
         }
       );
     }
-    if (commandName === 'help'){
-      if (!this.checkArgs(command, 0)) return;
+    if (commandName === 'help') {
+      if (!this.checkArgs(command, 0)) { return; }
       this.getHelp();
     }
     // TODO: handling
-    if (commandName === 'open'){
+    if (commandName === 'open') {
 
     }
   }
 
-
-  checkArgs(commandName, needed){
-    let argsNum = commandName.split(' ').length - 1;
-    if (argsNum !== needed){
-      let systemMessage = 'You have <b>' + argsNum.toString() + '</b> arguments, but <b>' + needed.toString() + '</b> needed!';
+  checkArgs(commandName, needed) {
+    const argsNum = commandName.split(' ').length - 1;
+    if (argsNum !== needed) {
+      const systemMessage = 'You have <b>' + argsNum.toString() + '</b> arguments, but <b>' + needed.toString() + '</b> needed!';
       this.sendSystemMessage(systemMessage);
       return false;
     }
@@ -103,11 +96,11 @@ export class ConsoleComponent implements OnInit {
 
   getHelp() {
     let helpText = '<i>Help</i>';
-    helpText += '\n<b>Main commands:</b>'
+    helpText += '\n<b>Main commands:</b>';
     this.mainCommands.forEach((commandName) => {
       helpText += '\n-' + commandName;
     });
-    helpText += '\n<b>Additional commands:</b>'
+    helpText += '\n<b>Additional commands:</b>';
     this.additionalCommands.forEach((commandName) => {
       helpText += '\n-' + commandName;
     });
@@ -115,11 +108,8 @@ export class ConsoleComponent implements OnInit {
   }
 }
 
-
-if(typeof(String.prototype.trim) === "undefined")
-{
-    String.prototype.trim = function() 
-    {
+if (typeof(String.prototype.trim) === 'undefined') {
+    String.prototype.trim = function() {
         return String(this).replace(/^\s+|\s+$/g, '');
     };
 }
