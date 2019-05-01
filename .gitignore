@@ -62,3 +62,4 @@ typings/
 
 # My
 node_modules/
+dist/
