@@ -61,4 +61,4 @@ typings/
 .next
 
 # My
-adviseMe/node_modules/
+node_modules/

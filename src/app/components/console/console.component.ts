@@ -13,7 +13,7 @@ import { createMessage } from '../../model/message.model';
 export class ConsoleComponent implements OnInit {
 
   mainCommands = Object.keys(actions);
-  additionalCommands = ['weather', 'open', 'help'];
+  additionalCommands = ['weather', 'open', 'help', 'clear'];
   recentMessages = [];
   messageContent = '';
   user = null;
@@ -54,7 +54,7 @@ export class ConsoleComponent implements OnInit {
     if (this.mainCommands.includes(command)) {
       this.handleMainCommand(command);
     }
-    if (this.additionalCommands.includes(commandName)) {
+    else if (this.additionalCommands.includes(commandName)) {
       this.handleAdditionalCommand(command, commandName);
     }
     this.scrollDownMessageContainer();
@@ -82,9 +82,14 @@ export class ConsoleComponent implements OnInit {
       if (!this.checkArgs(command, 0)) { return; }
       this.getHelp();
     }
-    // TODO: handling
     if (commandName === 'open') {
-
+      if (!this.checkArgs(command, 1)) { return; }
+      const url = command.split(' ')[1];
+      window.open('https://' + url, '_blank');
+    }
+    if (commandName === 'clear') {
+      if (!this.checkArgs(command, 0)) { return; }
+      this.recentMessages = [];
     }
   }
 
