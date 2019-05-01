@@ -1,27 +1,25 @@
 # AdviseMe
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.8.
+  
 
-## Development server
+Last updated 5/1/2019
+## Overview
+With "AdviseMe" you can find answers to your questions related to different topics. You would have plan how to achieve your goal and track your progress. Also, here with our chat you can explore small features like weather or fastly open new link. Because our app created like a chat, it could be easily extended in the future with more topics and helpful features.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+________________________________________
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+In this app we used Angular and deploy to Heroku. Our APIs: Facebook Login API and Google Sign-in API to log in and Openweather API https://openweathermap.org/current for in-app weather forecast.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Run locally
+Run:
+`npm install`
+`node server.js`
+Visit:
+`localhost:8080`
+________________________________________
 
-## Running unit tests
+  
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Just visit this web site: https://advise-me-app.herokuapp.com
