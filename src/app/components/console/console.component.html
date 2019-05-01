@@ -11,7 +11,7 @@
 
         <div class="am-console-message-photo">
           <img alt=""
-               [src]="user.photoUrl">
+               [src]="message.isYour ? user.photoUrl : '../../../assets/img/bot.png'">
         </div>
       </div>
     </div>
