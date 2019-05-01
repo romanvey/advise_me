@@ -57,7 +57,7 @@ export class ConsoleComponent implements OnInit {
     else if (this.additionalCommands.includes(commandName)) {
       this.handleAdditionalCommand(command, commandName);
     } else {
-      this.sendSystemMessage('No such command. Use \'help\' for see all options');
+      this.sendSystemMessage('No such command. Use \'help\' to see all options');
     }
     this.scrollDownMessageContainer();
   }
