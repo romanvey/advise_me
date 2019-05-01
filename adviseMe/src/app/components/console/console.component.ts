@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MessageComponent } from '../message/message.component';
 import { ViewChild, ElementRef } from '@angular/core';
 import { RestService } from '../../services/rest.service';
 import { ActionService } from '../../services/action.service';
 import { actions } from '../../enums/actions';
+import { createMessage } from '../../model/message.model';
 
 @Component({
   selector: 'app-console',
@@ -33,13 +33,13 @@ export class ConsoleComponent implements OnInit {
     const lastCommand = this.messageContent;
     this.messageContent = '';
     if (lastCommand !== '') {
-      this.recentMessages.push(new MessageComponent(lastCommand.split('\n'), true));
+      this.recentMessages.push(createMessage(lastCommand.split('\n'), true));
       setTimeout(() => { this.getSystemResponse(lastCommand); }, 100);
     }
   }
 
   sendSystemMessage(messageContent) {
-    this.recentMessages.push(new MessageComponent(messageContent.split('\n'), false));
+    this.recentMessages.push(createMessage(messageContent.split('\n'), false));
     setTimeout(() => { this.scrollDownMessageContainer(); }, 100);
   }
 

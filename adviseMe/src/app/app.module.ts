@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ActionComponent } from './components/action/action.component';
 import { ConsoleComponent } from './components/console/console.component';
-import { MessageComponent } from './components/message/message.component';
 import { SocialLoginComponent } from './components/social-login/social-login.component';
 import { AuthServiceConfig, FacebookLoginProvider, GoogleLoginProvider, SocialLoginModule } from 'angularx-social-login';
 import { LoggedOutGuard } from './auth/logged-out.guard';
@@ -38,7 +37,6 @@ export function provideConfig() {
     HeaderComponent,
     ActionComponent,
     ConsoleComponent,
-    MessageComponent,
     SocialLoginComponent,
     SocialLoginPageComponent,
     HomePageComponent
