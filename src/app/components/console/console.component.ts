@@ -56,12 +56,13 @@ export class ConsoleComponent implements OnInit {
     }
     else if (this.additionalCommands.includes(commandName)) {
       this.handleAdditionalCommand(command, commandName);
+    } else {
+      this.sendSystemMessage('No such command. Use \'help\' for see all options');
     }
     this.scrollDownMessageContainer();
   }
 
   handleMainCommand(command) {
-    // TODO: handling main commands
     this.sendSystemMessage('<b>Okay!</b>');
     this.actionService.changeAction(command);
   }
