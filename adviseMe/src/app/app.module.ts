@@ -15,7 +15,7 @@ import { SocialLoginPageComponent } from './components/social-login/page/social-
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { RestService } from './services/rest.service';
 import { HttpClientModule } from '@angular/common/http';
-import { MatExpansionModule, MatIconModule } from '@angular/material';
+import { MatExpansionModule, MatIconModule, MatProgressBarModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ActionService } from './services/action.service';
 
@@ -50,7 +50,8 @@ export function provideConfig() {
     HttpClientModule,
     BrowserAnimationsModule,
     MatExpansionModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressBarModule
   ],
   providers: [
     {

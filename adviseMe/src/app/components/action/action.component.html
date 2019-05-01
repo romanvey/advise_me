@@ -1,6 +1,18 @@
 <div class="am-action">
   <div class="am-action-content" *ngIf="activeAction">
     <h2 class="am-action-header">{{ actionTitle }}</h2>
+    <div class="am-action-progress-status">
+      <div class="am-action-progress-status-almost" *ngIf="progress >= 75 && progress < 100">
+        You are almost there, keep going!
+      </div>
+      <div class="am-action-progress-status-done" *ngIf="progress === 100;">
+        Well done, You reached the target!
+      </div>
+    </div>
+    <div class="am-action-progressbar">
+      <div class="am-action-progressbar-percentage">{{ progress }} %</div>
+      <mat-progress-bar mode="determinate" [value]="progress" color="red"></mat-progress-bar>
+    </div>
     <mat-accordion [multi]="true" class="am-action-accordion">
       <mat-expansion-panel *ngFor="let actionItem of activeAction">
         <mat-expansion-panel-header class="am-action-accordion-header">
